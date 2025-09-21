@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<link href="css/lightbox.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Haus Anna in Weißbriach / Gitschtal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background-color: #fdf6e3;
+      color: #3b3b3b;
+    }
+
+    header {
+		position: relative;
+	  height: 80vh;
+	  overflow: hidden;
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  text-align: center;
+	  color: white;
+	  text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
+	}
+
+#bg-video {
+  /* Positioniert das Video absolut im Verhältnis zum body */
+    position: absolute;
+    /* Platziert das Video an der oberen linken Ecke der 50%-Marke */
+    top: 50%;
+    left: 50%;
+    /* Verschiebt das Video um die Hälfte seiner Breite und Höhe, um es perfekt zu zentrieren */
+    transform: translate(-50%, -50%);
+  height: 100vh; /* passt sich der Höhe des Viewports an */
+  width: auto;
+  object-fit: cover; /* schneidet ggf. überstehende Ränder ab */
+  display: none;
+  z-index: -1;
+}
+
+#bg-image {
+  /* Positioniert das Bild absolut im Verhältnis zum body */
+    position: absolute;
+    /* Platziert das Bild an der oberen linken Ecke der 50%-Marke */
+    top: 50%;
+    left: 50%;
+    /* Verschiebt das Bild um die Hälfte seiner Breite und Höhe, um es perfekt zu zentrieren */
+    transform: translate(-50%, -50%);
+  height: 100vh; /* passt sich der Höhe des Viewports an */
+  width: auto;
+  object-fit: cover; /* schneidet ggf. überstehende Ränder ab */
+  display: none;
+  z-index: -1;
+}
+
+.header-content {
+  z-index: 1;
+}
+
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 4rem;
+      margin: 0;
+    }
+
+    p.subtitle {
+      font-size: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    nav {
+      background-color: #8fbf9f;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    .gallery img {
+      width: 30%;
+      margin: 1%;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    input, textarea {
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    input[type="submit"] {
+      background-color: #8fbf9f;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #6fae8a;
+    }
+
+    .calendar {
+      background-color: #fff;
+      padding: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      text-align: center;
+      font-style: italic;
+      color: #666;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #8fbf9f;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+      .gallery img {
+        width: 100%;
+        margin-bottom: 1rem;
+      }
+      nav a {
+        display: block;
+        margin: 0.5rem 0;
+      }
+	  header {
+    height: 60vh;
+  }
+    }
+  </style>
+</head>
+
+
+<body>
+
+  <header>
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="Video/Haus Sommer + Winter.mp4" type="video/mp4">
+    Dein Browser unterstützt kein HTML5-Video.
+  </video>
+  
+  <div id="bg-image">
+    <img src="Galerie/Bilder_Sommer/Das_Haus/Garten_2.jpg" alt="Alternatives Bild" width="1200" height="900">
+  </div>
+  
+  <div class="header-content">
+    <h1>Haus Anna in Weißbriach / Gitschtal</h1>
+    <p class="subtitle">Ein Ort zum Durchatmen und Träumen</p>
+  </div>
+</header>
+
+<script>
+    function isMobileDevice() {
+      return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    }
+
+    if (isMobileDevice()) {
+      document.getElementById('bg-image').style.display = 'block';
+    } else {
+      document.getElementById('bg-video').style.display = 'block';
+    }
+  </script>
+
+  <nav>
+    <a href="#willkommen">Startseite</a>
+    <a href="#Das Haus">Das Haus</a>
+    <a href="#Die Umgebung">Die Umgebung</a>
+    <a href="#Wichtig zu wissen">Wichtig zu wissen</a>
+    <a href="#preise">Preise</a>
+    <a href="#galerie">Galerie</a>
+    <a href="#kalender">Buchung</a>
+    <a href="#kontakt/Anfrage">Kontakt</a>
+  </nav>
+
+  <main>
+    <section id="willkommen">
+      <h2>Willkommen!</h2>
+      <p>
+		Gemütliches Ferienhaus im Gitschtal – ideal für Familien & Naturfreunde<br>
+ 	</section>
+	
+	<section id="Das Haus">
+		<h2>Das Haus</h2>
+		Willkommen in unserem charmanten Ferienhaus im idyllischen <span style="font-size: 20px;"><b><i>Weißbriach</i></b></span>, mitten im schönen <span style="font-size: 16px;"><b><i>Gitschtal in Kärnten!</i></b></span><br>
+		Das Haus liegt in einer beliebten Urlaubsregion – perfekt für <span style="font-size: 16px;"><b><i>Familien, Paare und alle, die Natur, Erholung oder sportliche Aktivitäten</i></b></span> suchen.<br>
+		Der nahegelegene <span style="font-size: 16px;"><b><i>Weißensee</i></b></span>, das <span style="font-size: 16px;"><b><i>Skigebiet im Ort</i></b></span> sowie das nur 20 Minuten entfernte <span style="font-size: 16px;"><b><i>Skigebiet Nassfeld</i></b></span> bieten das ganze Jahr über abwechslungsreiche Freizeitmöglichkeiten.<br>
+		<br>
+		Das Haus bietet <span style="font-size: 16px;"><b><i>Platz für bis zu 8 Personen</i></b></span> und ist ideal für Familien oder kleinere Gruppen.<br>
+		<br>
+		
+		<span style="font-size: 20px;"><b><i><span style="text-decoration: underline;">3 Schlafzimmer:</span></i></b></span><br>
+		1 Doppelzimmer, 2 Dreibettzimmer (jeweils mit einem Doppel- und einem Einzelbett)<br>
+		Hinweis: Zwei der Doppelbetten sind nur 190 cm lang – also nicht ideal für sehr groß gewachsene Gäste<br>
+		<br>
+		Jedes Zimmer verfügt über ein <span style="font-size: 16px;"><b><i>eigenes Waschbecken</i></b></span>
+		<br><br>
+		Das Haus verfügt über <span style="font-size: 16px;"><b><i>1 Badezimmer</i></b></span> mit geräumiger Dusche sowie <span style="font-size: 16px;"><b><i>2 separate WCs</i></b></span>
+		<br><br>
+		<span style="font-size: 16px;"><b><i>Waschmaschine</i></b></span> ist vorhanden<br>
+		<br>
+		<span style="font-size: 16px;"><b><i>Voll ausgestattete Küche</i></b></span> mit Elektroherd und zusätzlichem <span style="font-size: 16px;"><b><i>Holzofen</i></b></span> für gemütliche Wintertage
+		<br><br>
+		Wohnzimmer mit TV-Anschluss
+		<br><br>
+		<span style="font-size: 16px;"><b><i>Fernwärme-Heizung</i></b></span> sorgt für angenehme Temperaturen im ganzen Haus
+		<br><br>
+		<span style="font-size: 16px;"><b><i>Große Terrasse</i></b></span> und gepflegter <span style="font-size: 20px;"><b><i>1000 qm großer Garten mit Feuerschale</i></b></span> für laue Sommerabende
+		<br><br>
+		Kostenloses <span style="font-size: 16px;"><b><i>WLAN und Parkplätze</i></b></span> direkt am Haus
+	</section>
+	
+	
+	<section id="Die Umgebung">
+		<h2>Die Umgebung hat viel zu bieten:</h2>
+		Im <span style="font-size: 20px;"><b><i><span style="text-decoration: underline;">Sommer</span></i></b></span> laden <span style="font-size: 16px;"><b><i>Wanderwege</i></b></span>, <span style="font-size: 16px;"><b><i>MTB Routen</i></b></span> und das <span style="font-size: 16px;"><b><i>örtliche Schwimmbad</i></b></span> zur Bewegung in der Natur ein.
+		<br>
+		Im <span style="font-size: 20px;"><b><i><span style="text-decoration: underline;">Winter</span></i></b></span> sind das <span style="font-size: 16px;"><b><i>familienfreundliche Skigebiet Weißbriachdirekt im Ort</i></b></span> sowie das große <span style="font-size: 16px;"><b><i>Skigebiet Nassfeld</i></b></span> schnell erreichbar.
+		<br><br>
+		Im Ort gibt es einen <span style="font-size: 16px;"><b><i>Supermarkt, einen Bäcker, mehrere Gasthäuser sowie eine Pizzeria</i></b></span> – alles fußläufig erreichbar.
+	</section>	
+	
+	<section id="Wichtig zu wissen">	
+		<h2>Wichtig zu wissen:</h2>
+		Haustiere sind leider nicht erlaubt<br><br>
+		Rauchen ist nur im Außenbereich gestattet<br><br>
+		Das Haus ist für <span style="font-size: 16px;"><b><i>Familien und ruhesuchende Gäste</i></b></span> bestens geeignet<br><br>
+		<span style="font-size: 16px;"><b><i>Unser Ferienhaus ist der perfekte Ausgangspunkt für einen entspannten oder aktiven Urlaub – zu jeder Jahreszeit. Wir freuen uns auf eure Anfrage!</i></b></span>
+	</section>
+      </p>
+   
+
+    <section id="preise">
+      <h2>Preise</h2>
+      <ul>
+        <li>Mai–September: €95/Nacht</li>
+        <li>Oktober–April: €80/Nacht</li>
+        <li>Endreinigung: €40</li>
+        <li>Mindestaufenthalt: 3 Nächte</li>
+      </ul>
+    </section>
+
+    <section id="galerie" class="gallery">
+     
+		<h2>Galerie - Sommer</h2>     
+ 		<h3>Das Dorf</h3>
+ 
+	
+		<a href="Galerie/Bilder_Sommer/Das_Dorf/Weissbriach_2.jpg" data-lightbox="meine-galerie" data-title="Das Dorf">
+    		<img src="Galerie/Bilder_Sommer/Das_Dorf/Vorschaubilder/Weissbriach_2.jpg" alt="Das Dorf">
+		</a>
+<a href="Galerie/Bilder_Sommer/Das_Dorf/Weissbriach_3.jpg" data-lightbox="meine-galerie" data-title="Das Dorf">
+    <img src="Galerie/Bilder_Sommer/Das_Dorf/Vorschaubilder/Weissbriach_3.jpg" alt="Das Dorf">
+</a>
+<a href="Galerie/Bilder_Sommer/Das_Dorf/Weissbriach_4.jpg" data-lightbox="meine-galerie" data-title="Das Dorf">
+    <img src="Galerie/Bilder_Sommer/Das_Dorf/Vorschaubilder/Weissbriach_4.jpg" alt="Das Dorf">
+</a>
+
+<a href="Galerie/Bilder_Sommer/Das_Dorf/Weissbriach_7.jpg" data-lightbox="meine-galerie" data-title="Das Dorf">
+    <img src="Galerie/Bilder_Sommer/Das_Dorf/Vorschaubilder/Weissbriach_7.jpg" alt="Das Dorf">
+</a>
+
+<a href="Galerie/Bilder_Sommer/Das_Dorf/Weissbriach_8.jpg" data-lightbox="meine-galerie" data-title="Das Dorf">
+    <img src="Galerie/Bilder_Sommer/Das_Dorf/Vorschaubilder/Weissbriach_8.jpg" alt="Das Dorf">
+</a>
+
+<a href="Galerie/Bilder_Sommer/Das_Dorf/Weissbriach_10.jpg" data-lightbox="meine-galerie" data-title="Das Dorf">
+    <img src="Galerie/Bilder_Sommer/Das_Dorf/Vorschaubilder/Weissbriach_10.jpg" alt="Das Dorf">
+</a>
+<a href="Galerie/Bilder_Sommer/Das_Dorf/Weissbriach_11.jpg" data-lightbox="meine-galerie" data-title="Das Dorf">
+    <img src="Galerie/Bilder_Sommer/Das_Dorf/Vorschaubilder/Weissbriach_11.jpg" alt="Das Dorf">
+</a>
+<a href="Galerie/Bilder_Sommer/Das_Dorf/Weissbriach_12.jpg" data-lightbox="meine-galerie" data-title="Das Dorf">
+    <img src="Galerie/Bilder_Sommer/Das_Dorf/Vorschaubilder/Weissbriach_12.jpg" alt="Das Dorf">
+</a>
+<a href="Galerie/Bilder_Sommer/Das_Dorf/Weissbriach_13.jpg" data-lightbox="meine-galerie" data-title="Das Dorf">
+    <img src="Galerie/Bilder_Sommer/Das_Dorf/Vorschaubilder/Weissbriach_13.jpg" alt="Das Dorf">
+</a>
+
+
+<a href="Galerie/Bilder_Sommer/Das_Dorf/Weissbriach_5.jpg" data-lightbox="meine-galerie" data-title="Das Dorf">
+    <img src="Galerie/Bilder_Sommer/Das_Dorf/Vorschaubilder/Weissbriach_5.jpg" alt="Das Dorf">
+</a>
+<a href="Galerie/Bilder_Sommer/Das_Dorf/Weissbriach_9.jpg" data-lightbox="meine-galerie" data-title="Das Dorf">
+    <img src="Galerie/Bilder_Sommer/Das_Dorf/Vorschaubilder/Weissbriach_9.jpg" alt="Das Dorf">
+</a>
+
+
+	 	<a href="Galerie/Bilder_Sommer/Das_Dorf/Weissbriach_1.jpg" data-lightbox="meine-galerie" data-title="Das Dorf">
+    		<img src="Galerie/Bilder_Sommer/Das_Dorf/Vorschaubilder/Weissbriach_1.jpg" alt="Das Dorf">
+		</a>    
+ <a href="Galerie/Bilder_Sommer/Das_Dorf/Weissbriach_14.jpg" data-lightbox="meine-galerie" data-title="Das Dorf">
+    <img src="Galerie/Bilder_Sommer/Das_Dorf/Vorschaubilder/Weissbriach_14.jpg" alt="Das Dorf">
+</a>     
+		
+	
+		<h3>Das Haus</h3>
+		
+<a href="Galerie/Bilder_Sommer/Das_Haus/Garten_2.jpg" data-lightbox="meine-galerie" data-title="Das Haus">
+    <img src="Galerie/Bilder_Sommer/Das_Haus/Vorschaubilder/Garten_2.jpg" alt="Das Haus">
+</a>
+<a href="Galerie/Bilder_Sommer/Das_Haus/Garten_5.jpg" data-lightbox="meine-galerie" data-title="Das Haus">
+    <img src="Galerie/Bilder_Sommer/Das_Haus/Vorschaubilder/Garten_5.jpg" alt="Das Haus">
+</a>
+<a href="Galerie/Bilder_Sommer/Das_Haus/Garten_7.jpg" data-lightbox="meine-galerie" data-title="Das Haus">
+    <img src="Galerie/Bilder_Sommer/Das_Haus/Vorschaubilder/Garten_7.jpg" alt="Das Haus">
+</a>
+
+<a href="Galerie/Bilder_Sommer/Das_Haus/Feuerkorb.jpg" data-lightbox="meine-galerie" data-title="Das Haus">
+    <img src="Galerie/Bilder_Sommer/Das_Haus/Vorschaubilder/Feuerkorb.jpg" alt="Das Haus">
+<a href="Galerie/Bilder_Sommer/Das_Haus/Haus_Vorderansicht.jpg" data-lightbox="meine-galerie" data-title="Das Haus">
+    <img src="Galerie/Bilder_Sommer/Das_Haus/Vorschaubilder/Haus_Vorderansicht.jpg" alt="Das Haus">
+</a>
+<a href="Galerie/Bilder_Sommer/Das_Haus/Kirche.jpg" data-lightbox="meine-galerie" data-title="Das Haus">
+    <img src="Galerie/Bilder_Sommer/Das_Haus/Vorschaubilder/Kirche.jpg" alt="Das Haus">
+</a>
+<a href="Galerie/Bilder_Sommer/Das_Haus/Garten_4.jpg" data-lightbox="meine-galerie" data-title="Das Haus">
+    <img src="Galerie/Bilder_Sommer/Das_Haus/Vorschaubilder/Garten_4.jpg" alt="Das Haus">
+</a>
+</a>
+
+<a href="Galerie/Bilder_Sommer/Das_Haus/Garten_1.jpg" data-lightbox="meine-galerie" data-title="Das Haus">
+    <img src="Galerie/Bilder_Sommer/Das_Haus/Vorschaubilder/Garten_1.jpg" alt="Das Haus">
+</a>
+
+<a href="Galerie/Bilder_Sommer/Das_Haus/Garten_3.jpg" data-lightbox="meine-galerie" data-title="Das Haus">
+    <img src="Galerie/Bilder_Sommer/Das_Haus/Vorschaubilder/Garten_3.jpg" alt="Das Haus">
+</a>
+
+
+<a href="Galerie/Bilder_Sommer/Das_Haus/Garten_6.jpg" data-lightbox="meine-galerie" data-title="Das Haus">
+    <img src="Galerie/Bilder_Sommer/Das_Haus/Vorschaubilder/Garten_6.jpg" alt="Das Haus">
+</a>
+
+<a href="Galerie/Bilder_Sommer/Das_Haus/Garten_8.jpg" data-lightbox="meine-galerie" data-title="Das Haus">
+    <img src="Galerie/Bilder_Sommer/Das_Haus/Vorschaubilder/Garten_8.jpg" alt="Das Haus">
+</a>
+<a href="Galerie/Bilder_Sommer/Das_Haus/Garten.jpg" data-lightbox="meine-galerie" data-title="Das Haus">
+    <img src="Galerie/Bilder_Sommer/Das_Haus/Vorschaubilder/Garten.jpg" alt="Das Haus">
+</a>
+<a href="Galerie/Bilder_Sommer/Das_Haus/Garten_Bank.jpg" data-lightbox="meine-galerie" data-title="Das Haus">
+    <img src="Galerie/Bilder_Sommer/Das_Haus/Vorschaubilder/Garten_Bank.jpg" alt="Das Haus">
+</a>
+
+
+<h3>Die Umgebung</h3>
+
+<h4>Die Möslalm, gemütliche Einkehr, Gehzeit ca. 1h - 1.5h, MTB ca 45 min</h4>
+
+<a href="Galerie/Bilder_Sommer/Umgebung/Startpunkt_Moeslalm.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Sommer/Umgebung/Vorschaubilder/Startpunkt_Moeslalm.jpg" alt="Die Umgebung">
+</a>
+<a href="Galerie/Bilder_Sommer/Umgebung/Moeslalm.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Sommer/Umgebung/Vorschaubilder/Moeslalm.jpg" alt="Die Umgebung">
+</a>
+<a href="Galerie/Bilder_Sommer/Umgebung/Moeslalm_2.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Sommer/Umgebung/Vorschaubilder/Moeslalm_2.jpg" alt="Die Umgebung">
+</a>
+
+<h4>Die Napalalm, Herrlicher Blick übers Gitschtal, nicht bewirtschaftet, Gehzeit ca. 2h - 2.5h, MTB ca 1.5h - 2h</h4>
+
+<a href="Galerie/Bilder_Sommer/Umgebung/Blick_von_Napalalm_auf_Reisskofel.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Sommer/Umgebung/Vorschaubilder/Blick_von_Napalalm_auf_Reisskofel.jpg" alt="Die Umgebung">
+</a>
+<a href="Galerie/Bilder_Sommer/Umgebung/Napalalm.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Sommer/Umgebung/Vorschaubilder/Napalalm.jpg" alt="Die Umgebung">
+</a>
+<a href="Galerie/Bilder_Sommer/Umgebung/Napalalm_2.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Sommer/Umgebung/Vorschaubilder/Napalalm_2.jpg" alt="Die Umgebung">
+</a>
+<a href="Galerie/Bilder_Sommer/Umgebung/Napalalm_Kreuz.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Sommer/Umgebung/Vorschaubilder/Napalalm_Kreuz.jpg" alt="Die Umgebung">
+</a>
+
+<a href="Galerie/Bilder_Sommer/Umgebung/Gitschtal_von_Napalalm_aus.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Sommer/Umgebung/Vorschaubilder/Gitschtal_von_Napalalm_aus.jpg" alt="Die Umgebung">
+</a>
+
+<h4>Näheste Gipfel: Sattelnock und kleiner Reisskofel</h4>
+
+<a href="Galerie/Bilder_Sommer/Umgebung/Sattelnock.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Sommer/Umgebung/Vorschaubilder/Sattelnock.jpg" alt="Die Umgebung">
+</a>
+<a href="Galerie/Bilder_Sommer/Umgebung/Kleiner_Reisskofel.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Sommer/Umgebung/Vorschaubilder/Kleiner_Reisskofel.jpg" alt="Die Umgebung">
+</a>
+
+
+
+<h4>Das Nassfeld -  Im Sommer ein Paradies zum Wandern</h4>
+
+<a href="Galerie/Bilder_Sommer/Umgebung/Nassfeld.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Sommer/Umgebung/Vorschaubilder/Nassfeld.jpg" alt="Die Umgebung">
+</a>
+<a href="Galerie/Bilder_Sommer/Umgebung/Nassfeld_1.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Sommer/Umgebung/Vorschaubilder/Nassfeld_1.jpg" alt="Die Umgebung">
+</a>
+<a href="Galerie/Bilder_Sommer/Umgebung/Nassfeld_2.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Sommer/Umgebung/Vorschaubilder/Nassfeld_2.jpg" alt="Die Umgebung">
+</a>
+<a href="Galerie/Bilder_Sommer/Umgebung/Nassfeld_3.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Sommer/Umgebung/Vorschaubilder/Nassfeld_3.jpg" alt="Die Umgebung">
+</a>
+
+<h4>Der Weissensee - Karibik der Alpen und wunderschöne MTB- bzw. Wandermöglichkeiten</h4>
+
+<a href="Galerie/Bilder_Sommer/Umgebung/Weissensee_6.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Sommer/Umgebung/Vorschaubilder/Weissensee_6.jpg" alt="Die Umgebung">
+</a>
+<a href="Galerie/Bilder_Sommer/Umgebung/Weissensee_7.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Sommer/Umgebung/Vorschaubilder/Weissensee_7.jpg" alt="Die Umgebung">
+</a>
+
+<a href="Galerie/Bilder_Sommer/Umgebung/Weissensee_3.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Sommer/Umgebung/Vorschaubilder/Weissensee_3.jpg" alt="Die Umgebung">
+</a>
+<a href="Galerie/Bilder_Sommer/Umgebung/Weissensee.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Sommer/Umgebung/Vorschaubilder/Weissensee.jpg" alt="Die Umgebung">
+</a>
+<a href="Galerie/Bilder_Sommer/Umgebung/Weissensee_1.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Sommer/Umgebung/Vorschaubilder/Weissensee_1.jpg" alt="Die Umgebung">
+</a>
+<a href="Galerie/Bilder_Sommer/Umgebung/Weissensee_2.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Sommer/Umgebung/Vorschaubilder/Weissensee_2.jpg" alt="Die Umgebung">
+</a>
+
+<a href="Galerie/Bilder_Sommer/Umgebung/Weissensee_5.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Sommer/Umgebung/Vorschaubilder/Weissensee_5.jpg" alt="Die Umgebung">
+</a>
+<a href="Galerie/Bilder_Sommer/Umgebung/Weissensee_8.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Sommer/Umgebung/Vorschaubilder/Weissensee_8.jpg" alt="Die Umgebung">
+</a>
+<a href="Galerie/Bilder_Sommer/Umgebung/Weissensee_12.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Sommer/Umgebung/Vorschaubilder/Weissensee_12.jpg" alt="Die Umgebung">
+</a>
+
+<a href="Galerie/Bilder_Sommer/Umgebung/Weissensee_10.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Sommer/Umgebung/Vorschaubilder/Weissensee_10.jpg" alt="Die Umgebung">
+</a>
+<a href="Galerie/Bilder_Sommer/Umgebung/Weissensee_11.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Sommer/Umgebung/Vorschaubilder/Weissensee_11.jpg" alt="Die Umgebung">
+</a>
+
+
+	
+<h2>Galerie - Winter</h2>     
+ 		<h3>Das Haus</h3>	
+
+
+<a href="Galerie/Bilder_Winter/Das_Haus/Garten.jpg" data-lightbox="meine-galerie" data-title="Das Haus">
+    <img src="Galerie/Bilder_Winter/Das_Haus/Vorschaubilder/Garten.jpg" alt="Das Haus">
+</a>
+
+<a href="Galerie/Bilder_Winter/Das_Haus/Garten_3.jpg" data-lightbox="meine-galerie" data-title="Das Haus">
+    <img src="Galerie/Bilder_Winter/Das_Haus/Vorschaubilder/Garten_3.jpg" alt="Das Haus">
+</a>
+<a href="Galerie/Bilder_Winter/Das_Haus/Garten_4.jpg" data-lightbox="meine-galerie" data-title="Das Haus">
+    <img src="Galerie/Bilder_Winter/Das_Haus/Vorschaubilder/Garten_4.jpg" alt="Das Haus">
+</a>
+<a href="Galerie/Bilder_Winter/Das_Haus/Garten_5.jpg" data-lightbox="meine-galerie" data-title="Das Haus">
+    <img src="Galerie/Bilder_Winter/Das_Haus/Vorschaubilder/Garten_5.jpg" alt="Das Haus">
+</a>
+
+<a href="Galerie/Bilder_Winter/Das_Haus/Haus_1.jpg" data-lightbox="meine-galerie" data-title="Das Haus">
+    <img src="Galerie/Bilder_Winter/Das_Haus/Vorschaubilder/Haus_1.jpg" alt="Das Haus">
+</a>
+<a href="Galerie/Bilder_Winter/Das_Haus/Haus_2.jpg" data-lightbox="meine-galerie" data-title="Das Haus">
+    <img src="Galerie/Bilder_Winter/Das_Haus/Vorschaubilder/Haus_2.jpg" alt="Das Haus">
+</a>
+
+<a href="Galerie/Bilder_Winter/Das_Haus/Gartenhaus.jpg" data-lightbox="meine-galerie" data-title="Das Haus">
+    <img src="Galerie/Bilder_Winter/Das_Haus/Vorschaubilder/Gartenhaus.jpg" alt="Das Haus">
+</a>
+<a href="Galerie/Bilder_Winter/Das_Haus/Kirche.jpg" data-lightbox="meine-galerie" data-title="Das Haus">
+    <img src="Galerie/Bilder_Winter/Das_Haus/Vorschaubilder/Kirche.jpg" alt="Das Haus">
+</a>
+<a href="Galerie/Bilder_Winter/Das_Haus/Garten_2.jpg" data-lightbox="meine-galerie" data-title="Das Haus">
+    <img src="Galerie/Bilder_Winter/Das_Haus/Vorschaubilder/Garten_2.jpg" alt="Das Haus">
+</a>
+<a href="Galerie/Bilder_Winter/Das_Haus/Haus_3.jpg" data-lightbox="meine-galerie" data-title="Das Haus">
+    <img src="Galerie/Bilder_Winter/Das_Haus/Vorschaubilder/Haus_3.jpg" alt="Das Haus">
+</a>
+
+<h3>Die Umgebung</h3>
+
+<a href="https://www.bergfex.at/gitschtal/" target="_blank"><h4>Schigebiet im Dorf und Langlaufloipe</h4></a> 
+  
+
+<a href="Galerie/Bilder_Winter/Umgebung/Berggeisthütte.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Winter/Umgebung/Vorschaubilder/Berggeisthütte.jpg" alt="Die Umgebung">
+</a>
+
+<a href="Galerie/Bilder_Winter/Umgebung/Hammerbodenlift.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Winter/Umgebung/Vorschaubilder/Hammerbodenlift.jpg" alt="Die Umgebung">
+</a>
+<a href="Galerie/Bilder_Winter/Umgebung/Loipe_2.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Winter/Umgebung/Vorschaubilder/Loipe_2.jpg" alt="Die Umgebung">
+</a>
+
+<h4>Die Napalalm - ein ungestörter Ort im Winter</h4> 
+
+
+<a href="Galerie/Bilder_Winter/Umgebung/Napalalm.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Winter/Umgebung/Vorschaubilder/Napalalm.jpg" alt="Die Umgebung">
+</a>
+<a href="Galerie/Bilder_Winter/Umgebung/Napalalm_1.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Winter/Umgebung/Vorschaubilder/Napalalm_1.jpg" alt="Die Umgebung">
+</a>
+<a href="Galerie/Bilder_Winter/Umgebung/Napalalm_2.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Winter/Umgebung/Vorschaubilder/Napalalm_2.jpg" alt="Die Umgebung">
+</a>
+<a href="Galerie/Bilder_Winter/Umgebung/Napalalm_3.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Winter/Umgebung/Vorschaubilder/Napalalm_3.jpg" alt="Die Umgebung">
+</a>
+
+<a href="Galerie/Bilder_Winter/Umgebung/Napalalm_5.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Winter/Umgebung/Vorschaubilder/Napalalm_5.jpg" alt="Die Umgebung">
+</a>
+<a href="Galerie/Bilder_Winter/Umgebung/Napalalm_6.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Winter/Umgebung/Vorschaubilder/Napalalm_6.jpg" alt="Die Umgebung">
+</a>
+<a href="Galerie/Bilder_Winter/Umgebung/Napalalm_7.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Winter/Umgebung/Vorschaubilder/Napalalm_7.jpg" alt="Die Umgebung">
+</a>
+<a href="Galerie/Bilder_Winter/Umgebung/Napalalm_8.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Winter/Umgebung/Vorschaubilder/Napalalm_8.jpg" alt="Die Umgebung">
+</a>
+<a href="Galerie/Bilder_Winter/Umgebung/Napalalm_9.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Winter/Umgebung/Vorschaubilder/Napalalm_9.jpg" alt="Die Umgebung">
+</a>
+<a href="Galerie/Bilder_Winter/Umgebung/Napalalm_10.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Winter/Umgebung/Vorschaubilder/Napalalm_10.jpg" alt="Die Umgebung">
+</a>
+<a href="Galerie/Bilder_Winter/Umgebung/Napalalm_11.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Winter/Umgebung/Vorschaubilder/Napalalm_11.jpg" alt="Die Umgebung">
+</a>
+<a href="Galerie/Bilder_Winter/Umgebung/Gitschtal.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Winter/Umgebung/Vorschaubilder/Gitschtal.jpg" alt="Die Umgebung">
+</a>
+
+<a href="https://www.bergfex.at/nassfeld/" target="_blank"><h4>Das Nassfeld, großes Schigebiet, 20 Autominuten entfernt, oder per gratis Schibus zu erreichen</h4> </a>
+
+<a href="Galerie/Bilder_Winter/Umgebung/Nassfeld_1.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Winter/Umgebung/Vorschaubilder/Nassfeld_1.jpg" alt="Die Umgebung">
+</a>
+<a href="Galerie/Bilder_Winter/Umgebung/Nassfeld_2.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Winter/Umgebung/Vorschaubilder/Nassfeld_2.jpg" alt="Die Umgebung">
+</a>
+<a href="Galerie/Bilder_Winter/Umgebung/Nassfeld_3.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Winter/Umgebung/Vorschaubilder/Nassfeld_3.jpg" alt="Die Umgebung">
+</a>
+
+<h4>Der Weissensee, Eislaufeldorado im Winter</h4> 
+
+<a href="Galerie/Bilder_Winter/Umgebung/Weissensee.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Winter/Umgebung/Vorschaubilder/Weissensee.jpg" alt="Die Umgebung">
+</a>
+<a href="Galerie/Bilder_Winter/Umgebung/Weissensee_1.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Winter/Umgebung/Vorschaubilder/Weissensee_1.jpg" alt="Die Umgebung">
+</a>
+<a href="Galerie/Bilder_Winter/Umgebung/Weissensee_2.jpg" data-lightbox="meine-galerie" data-title="Die Umgebung">
+    <img src="Galerie/Bilder_Winter/Umgebung/Vorschaubilder/Weissensee_2.jpg" alt="Die Umgebung">
+</a>
+
+
+ 
+		
+    </section>
+
+    <section id="kalender">
+      <h2>Buchungskalender</h2>
+      <div class="calendar">
+        Hier könnte dein Buchungskalender eingebunden werden (z. B. von <a href="https://calendly.com" target="_blank">Calendly</a> oder einem WordPress-Plugin).
+      </div>
+    </section>
+
+    <section id="kontakt/Anfrage">
+      <h2>Kontakt/Anfrage</h2>
+      <form action="mailto:lesser@gmx.net" method="post" enctype="text/plain">
+        <input type="text" name="Name" placeholder="Dein Name" required>
+        <input type="email" name="Email" placeholder="Deine E-Mail" required>
+        <textarea name="Nachricht" rows="5" placeholder="Deine Nachricht" required></textarea>
+        <input type="submit" value="Nachricht senden">
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Ferienhaus Gitschtal – mit Liebe gestaltet
+  </footer>
+  
+<script src="js/lightbox-plus-jquery.min.js"></script>
+</body>
+</html>
